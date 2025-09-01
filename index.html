@@ -43,34 +43,49 @@
         <i class="fa-solid fa-music sparkle"></i>
 
       <!-- 🔘 Tombol Play Musik -->
-      <button id="playBtn" class="btn">
-        🎶 Dengerin Lagunya 💜
-      </button>
-      <h3>Ours to keep - Kendis</h3>
-    </div>
-</header>
- <!-- 🎵 Audio -->
-  <audio id="bgm" loop>
-    <source src="audio/ourstokeep.mp3" type="audio/mpeg" />
-  </audio>
-
+   <button id="playBtn1" class="btn">🎶 Dengerin Lagunya 💜</button>
+<audio id="bgm1" loop>
+  <source src="audio/ourstokeep.mp3" type="audio/mpeg" />
+</audio>
   <!-- ✅ Script diletakkan di bawah -->
-  <script>
-    const audio = document.getElementById("bgm");
-    const playBtn = document.getElementById("playBtn");
-    let isPlaying = false;
+  <script> const players = [
+    { btnId: "playBtn1", audioId: "bgm1", playText: "🎶 Dengerin Lagunya 💜", pauseText: "🎶 Berhentiin Lagunya 💜" },
+    { btnId: "playBtn2", audioId: "bgm2", playText: "🎶 Dengerin Bidadariku 💜", pauseText: "🎶 Berhentiin Bidadariku 💜" }
+  ];
 
-    playBtn.addEventListener("click", () => {
-      if (!isPlaying) {
-        audio.play();
-        playBtn.textContent = "🎶 Berhentiin Lagunya 💜";
-      } else {
-        audio.pause();
-        playBtn.textContent = "🎶 Dengerin Lagunya 💜";
-      }
-      isPlaying = !isPlaying;
+  function setupPlayers() {
+    players.forEach((player, index) => {
+      const btn = document.getElementById(player.btnId);
+      const audio = document.getElementById(player.audioId);
+
+      btn.addEventListener("click", () => {
+        if (audio.paused) {
+          // 🔇 Hentikan semua audio lain
+          players.forEach((other, i) => {
+            const otherAudio = document.getElementById(other.audioId);
+            const otherBtn = document.getElementById(other.btnId);
+            if (i !== index) {
+              otherAudio.pause();
+              otherAudio.currentTime = 0;
+              otherBtn.textContent = other.playText;
+            }
+          });
+
+          // ▶️ Play audio ini
+          audio.play();
+          btn.textContent = player.pauseText;
+        } else {
+          // ⏸ Pause audio ini
+          audio.pause();
+          btn.textContent = player.playText;
+        }
+      });
     });
-  </script>
+  }
+
+  setupPlayers();
+</script>
+
       <main>
         <section class="timeline-section" id="story">
           <h2 data-aos="fade-up">Kenangan kita, Kenangan yang gabakal aku lupain...</h2>
@@ -290,16 +305,10 @@
             <i class="fa-solid fa-music sparkle"></i>
 
       <!-- 🔘 Tombol Play Musik -->
-      <button id="playBtn" class="btn">
-        🎶 Dengerin Lagunya 💜
-      </button>
-    </div>
-</header>
- <!-- 🎵 Audio -->
-  <audio id="bgm" loop>
-    <source src="audio/Bidadariku.mp3" type="audio/mpeg" />
-  </audio>
-
+ <button id="playBtn2" class="btn">🎶 Dengerin Bidadariku 💜</button>
+<audio id="bgm2" loop>
+  <source src="audio/Bidadariku.mp3" type="audio/mpeg" />
+</audio>
   <!-- ✅ Script diletakkan di bawah -->
   <script>
     playBtn.addEventListener("click", () => {
