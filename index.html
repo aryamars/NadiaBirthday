@@ -20,31 +20,9 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-<audio id="bgm" loop>
+<audio autoplay loop hidden>
   <source src="audio/ourstokeep.mp3" type="audio/mpeg" />
 </audio>
-
-<button id="playBtn" style="position:fixed; bottom:20px; right:20px; padding:10px 15px; border:none; border-radius:50%; background:#ff4d6d; color:white; font-size:20px; cursor:pointer; box-shadow:0 4px 10px rgba(0,0,0,0.3);">
-  🎵
-</button>
-
-<script>
-  const audio = document.getElementById("bgm");
-  const playBtn = document.getElementById("playBtn");
-  let isPlaying = false;
-
-  playBtn.addEventListener("click", () => {
-    if (!isPlaying) {
-      audio.play();
-      playBtn.textContent = "⏸️"; // jadi pause
-    } else {
-      audio.pause();
-      playBtn.textContent = "🎵"; // balik ke ikon musik
-    }
-    isPlaying = !isPlaying;
-  });
-</script>
-
     <div class="page-wrapper">
       <header class="hero-section">
         <div class="hero-content" data-aos="fade-in" data-aos-duration="1500">
