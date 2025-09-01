@@ -20,6 +20,31 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
+<audio id="bgm" loop>
+  <source src="audio/ourstokeep.mp3" type="audio/mpeg" />
+</audio>
+
+<button id="playBtn" style="position:fixed; bottom:20px; right:20px; padding:10px 15px; border:none; border-radius:50%; background:#ff4d6d; color:white; font-size:20px; cursor:pointer; box-shadow:0 4px 10px rgba(0,0,0,0.3);">
+  🎵
+</button>
+
+<script>
+  const audio = document.getElementById("bgm");
+  const playBtn = document.getElementById("playBtn");
+  let isPlaying = false;
+
+  playBtn.addEventListener("click", () => {
+    if (!isPlaying) {
+      audio.play();
+      playBtn.textContent = "⏸️"; // jadi pause
+    } else {
+      audio.pause();
+      playBtn.textContent = "🎵"; // balik ke ikon musik
+    }
+    isPlaying = !isPlaying;
+  });
+</script>
+
     <div class="page-wrapper">
       <header class="hero-section">
         <div class="hero-content" data-aos="fade-in" data-aos-duration="1500">
@@ -59,7 +84,7 @@
                   />
                 </div>
                 <div class="timeline-text">
-                  <span class="date"> Juli 2022, Gedung E10</span>
+                  <span class="date"> September 2022, Gedung E10</span>
                   <p>
                     Kita pertama kali ketemu di kampus dan ga saling kenal, gada dokumentasi pas kita di depan E10 tapi seenggaknya ini mmewakili di depan E10 juga hihi.
                   </p>
@@ -73,12 +98,12 @@
               <div class="timeline-content">
                 <div class="timeline-image">
                   <img
-                    src="https://via.placeholder.com/400x400.png?text=Foto+Jadian"
+                    src="img/Nayscofee.jpg"
                     alt="Hari Jadian"
                   />
                 </div>
                 <div class="timeline-text">
-                  <span class="date">Desember 2022, Nay Cafee ❤️</span>
+                  <span class="date">September 2022, Nay Cafee ❤️</span>
                   <p>
                     Pertama kali kita kenalan pas sekelompok, sebuah Cafe di Ketintang. Disitu mataku hanya tertuju pada cahaya kecilku, "Nadiaku, aku yakin akan memilikimu" ucap dalam hatiku.
                   </p>
@@ -92,14 +117,33 @@
               <div class="timeline-content">
                 <div class="timeline-image">
                   <img
-                    src="https://via.placeholder.com/400x400.png?text=Foto+Jadian"
+                    src="img/FirstDate.JPG"
                     alt="Hari Jadian"
                   />
                 </div>
                 <div class="timeline-text">
-                  <span class="date">Desember 2022 Gacoan ❤️</span>
+                  <span class="date">Oktober 2022 Gacoan ❤️</span>
                   <p>
                     Date pertama kali kita di Gacoan, pas itu ga kehitung date resmi si tapi disitu aku jujur untuk serius sama kamu meskipun kamu masih jaga hati orang huhuu.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="timeline-item" data-aos="fade-up">
+              <div class="timeline-icon">
+                <i class="fa-solid fa-heart"></i>
+              </div>
+              <div class="timeline-content">
+                <div class="timeline-image">
+                  <img
+                    src="img/Nonton1.JPEG"
+                    alt="Hari Jadian"
+                  />
+                </div>
+                <div class="timeline-text">
+                  <span class="date">6 Desember Nonton Film Petama barengan ❤️</span>
+                  <p>
+                    Nonton pertama kali kita , Waktu itu dapet bocoran dari kayla kamu udah ga jaga hati orang lagi, aku berusaha buat dapetin kamu lagi dan akhirnya kita...
                   </p>
                 </div>
               </div>
