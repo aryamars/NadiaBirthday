@@ -35,16 +35,18 @@
     <h1>Happy Birthday, Nadia</h1>
     <h2>Bidadariku, Duniaku</h2>
     <h3>Selamanya Bidadariku. Selamanya...</h3>
+    
     <p class="subtitle">
       Tuhan memberikan sedikit cahayanya kepada bumi pada tanggal 6
       September 2004 - Penerang hidupku.
     </p>
-        <i class="fa-solid fa-heart sparkle"></i>
+        <i class="fa-solid fa-music sparkle"></i>
 
       <!-- 🔘 Tombol Play Musik -->
       <button id="playBtn" class="btn">
         🎶 Dengerin Lagunya 💜
       </button>
+      <h3>Ours to keep - Kendis</h3>
     </div>
 </header>
  <!-- 🎵 Audio -->
@@ -285,9 +287,33 @@
               Mewujudkan impian... <br />
               Bidadariku...<br />
             </blockquote>
-            <a href="LINK_KE_AUDIO_ATAU_VIDEO_LAGU" class="btn" target="_blank"
-              >Dengerin Lagunya 💜</a
-            >
+            <i class="fa-solid fa-music sparkle"></i>
+
+      <!-- 🔘 Tombol Play Musik -->
+      <button id="playBtn" class="btn">
+        🎶 Dengerin Lagunya 💜
+      </button>
+    </div>
+</header>
+ <!-- 🎵 Audio -->
+  <audio id="bgm" loop>
+    <source src="audio/Bidadariku.mp3" type="audio/mpeg" />
+  </audio>
+
+  <!-- ✅ Script diletakkan di bawah -->
+  <script>
+    playBtn.addEventListener("click", () => {
+      if (!isPlaying) {
+        audio.play();
+        playBtn.textContent = "🎶 Berhentiin Lagunya 💜";
+      } else {
+        audio.pause();
+        playBtn.textContent = "🎶 Dengerin Lagunya 💜";
+      }
+      isPlaying = !isPlaying;
+    });
+  </script>
+            
           </div>
         </section>
 
