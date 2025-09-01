@@ -48,43 +48,7 @@
   <source src="audio/ourstokeep.mp3" type="audio/mpeg" />
 </audio>
   <!-- ✅ Script diletakkan di bawah -->
-  <script> const players = [
-    { btnId: "playBtn1", audioId: "bgm1", playText: "🎶 Dengerin Lagunya 💜", pauseText: "🎶 Berhentiin Lagunya 💜" },
-    { btnId: "playBtn2", audioId: "bgm2", playText: "🎶 Dengerin Bidadariku 💜", pauseText: "🎶 Berhentiin Bidadariku 💜" }
-  ];
 
-  function setupPlayers() {
-    players.forEach((player, index) => {
-      const btn = document.getElementById(player.btnId);
-      const audio = document.getElementById(player.audioId);
-
-      btn.addEventListener("click", () => {
-        if (audio.paused) {
-          // 🔇 Hentikan semua audio lain
-          players.forEach((other, i) => {
-            const otherAudio = document.getElementById(other.audioId);
-            const otherBtn = document.getElementById(other.btnId);
-            if (i !== index) {
-              otherAudio.pause();
-              otherAudio.currentTime = 0;
-              otherBtn.textContent = other.playText;
-            }
-          });
-
-          // ▶️ Play audio ini
-          audio.play();
-          btn.textContent = player.pauseText;
-        } else {
-          // ⏸ Pause audio ini
-          audio.pause();
-          btn.textContent = player.playText;
-        }
-      });
-    });
-  }
-
-  setupPlayers();
-</script>
 
       <main>
         <section class="timeline-section" id="story">
@@ -309,19 +273,48 @@
 <audio id="bgm2" loop>
   <source src="audio/Bidadariku.mp3" type="audio/mpeg" />
 </audio>
-  <!-- ✅ Script diletakkan di bawah -->
-  <script>
-    playBtn.addEventListener("click", () => {
-      if (!isPlaying) {
-        audio.play();
-        playBtn.textContent = "🎶 Berhentiin Lagunya 💜";
-      } else {
-        audio.pause();
-        playBtn.textContent = "🎶 Dengerin Lagunya 💜";
-      }
-      isPlaying = !isPlaying;
+
+...
+
+<!-- ✅ Script taruh di paling bawah sebelum </body> -->
+<script>
+  const players = [
+    { btnId: "playBtn1", audioId: "bgm1", playText: "🎶 Dengerin Lagunya 💜", pauseText: "🎶 Berhentiin Lagunya 💜" },
+    { btnId: "playBtn2", audioId: "bgm2", playText: "🎶 Dengerin Bidadariku 💜", pauseText: "🎶 Berhentiin Bidadariku 💜" }
+  ];
+
+  function setupPlayers() {
+    players.forEach((player, index) => {
+      const btn = document.getElementById(player.btnId);
+      const audio = document.getElementById(player.audioId);
+
+      btn.addEventListener("click", () => {
+        if (audio.paused) {
+          // 🔇 Stop semua audio lain
+          players.forEach((other, i) => {
+            const otherAudio = document.getElementById(other.audioId);
+            const otherBtn = document.getElementById(other.btnId);
+            if (i !== index) {
+              otherAudio.pause();
+              otherAudio.currentTime = 0;
+              otherBtn.textContent = other.playText;
+            }
+          });
+
+          // ▶️ Play audio ini
+          audio.play();
+          btn.textContent = player.pauseText;
+        } else {
+          // ⏸ Pause audio ini
+          audio.pause();
+          btn.textContent = player.playText;
+        }
+      });
     });
-  </script>
+  }
+
+  setupPlayers();
+</script>
             
           </div>
         </section>
