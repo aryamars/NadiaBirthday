@@ -20,30 +20,6 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <!-- Backsound -->
-<!-- Backsound -->
-<audio id="bgm" loop>
-  <source src="audio/ourstokeep.mp3" type="audio/mpeg" />
-</audio>
-
-<script>
-  const audio = document.getElementById("bgm");
-  const playBtn = document.getElementById("playBtn");
-  let isPlaying = false;
-
-  playBtn.addEventListener("click", () => {
-    if (!isPlaying) {
-      audio.play();
-      playBtn.textContent = "⏸️ Pause musik";
-    } else {
-      audio.pause();
-      playBtn.textContent = "🎶 Klik disini biar lebih enak dengerin webnya 🎶";
-    }
-    isPlaying = !isPlaying;
-  });
-</script>
-
-
     <div class="page-wrapper">
      <header class="hero-section">
   <div class="hero-content" data-aos="fade-in" data-aos-duration="1500">
@@ -63,16 +39,36 @@
       Tuhan memberikan sedikit cahayanya kepada bumi pada tanggal 6
       September 2004 - Penerang hidupku.
     </p>
-    <i class="fa-solid fa-heart sparkle"></i>
+        <i class="fa-solid fa-heart sparkle"></i>
 
-    <!-- 🎵 Tombol musik -->
-    <button id="playBtn" class="btn">
-      Klik disini biar lebih enak dengerin webnya 🎶
-    </button>
-  </div>
+      <!-- 🔘 Tombol Play Musik -->
+      <button id="playBtn" class="btn">
+        🎶 Dengerin Lagunya 💜
+      </button>
+    </div>
 </header>
+ <!-- 🎵 Audio -->
+  <audio id="bgm" loop>
+    <source src="audio/ourstokeep.mp3" type="audio/mpeg" />
+  </audio>
 
+  <!-- ✅ Script diletakkan di bawah -->
+  <script>
+    const audio = document.getElementById("bgm");
+    const playBtn = document.getElementById("playBtn");
+    let isPlaying = false;
 
+    playBtn.addEventListener("click", () => {
+      if (!isPlaying) {
+        audio.play();
+        playBtn.textContent = "🎶 Berhentiin Lagunya 💜";
+      } else {
+        audio.pause();
+        playBtn.textContent = "🎶 Dengerin Lagunya 💜";
+      }
+      isPlaying = !isPlaying;
+    });
+  </script>
       <main>
         <section class="timeline-section" id="story">
           <h2 data-aos="fade-up">Kenangan kita, Kenangan yang gabakal aku lupain...</h2>
